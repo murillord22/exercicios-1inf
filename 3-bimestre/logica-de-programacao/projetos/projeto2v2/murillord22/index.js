@@ -5,9 +5,12 @@ const valorMensalidade = 100
 let  taxaMatricula = 30
 const idade = 14
 const categoriaEstudante = 0
-let = valorpago = 130
+let valorPago = 130
+
 // rf02
+
 let valorBase = valorMensalidade + taxaMatricula
+
 // rf03
 
 let idadeStatus = "aguardando"
@@ -18,15 +21,16 @@ if (idade >= 16) {
 }
 
 // rf04
+let categoria= 1
 
 let descontoStatus = "aguardando"
 let valorDesconto = "aguardando"
 if (categoria === 1) {
-    valorDesconto = 40
-    descontoStatus = "desconto aprovado"
-} else {
     valorDesconto = 0
     descontoStatus = "Sem desconto"
+} else {
+    valorDesconto = 40
+    descontoStatus = "Desconto aprovado"
 }
 
 // rf05
@@ -82,4 +86,4 @@ module.exports = {
     troco,
     statusMatricula,
     resumo
-}
+}   
