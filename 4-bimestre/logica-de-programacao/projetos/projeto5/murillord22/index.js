@@ -1,35 +1,31 @@
 const prompt = require("prompt-sync")()
 
-const nomeTurno = prompt("Digite o seu turno:")
-const meta = Number(prompt("Digite a sua meta de produção:"))
-const producaoInicial = Number(prompt("Digite a produção inicial:"))
-const pecasPorCaixa = Number(prompt("Digite a quantidade de peças por caixa:"))
+const nomeTurno = prompt("Digite o nome do seu turno:")
+const meta = Number(prompt("Digite sua Meta de produções:"))
+const producaoInicial = Number(prompt("Digite sua produção inicial:"))
+const pecasPorCaixa = Number(prompt("digite a quantidade de peças por caixa:"))
 let producaoFinal = producaoInicial
-let situacaoMeta = "Meta atingida"
 
-
-while(producaoFinal < meta) {
+while (producaoFinal < meta) {
     producaoFinal++
-    situacaoMeta = producaoFinal >= meta ? "Meta atingida" : "Meta não atingida"
 }
 let caixasNecessarias = 0
-let restante = 0
 
 do {
     caixasNecessarias++
-    restante = producaoFinal - pecasPorCaixa
-} while (restante > 0 )
+    producaoFinal = producaoFinal - pecasPorCaixa
+} while (producaoFinal > 0)
+producaoFinal = meta
 
-
+const situacaoMeta = producaoFinal >= meta ? "Meta atingida" : "Meta não atingida"
 const resumo = `
-RESUMO LEGAL DEMAIS
-TURNO: ${nomeTurno}
-PRODUÇÃO FINAL: ${producaoFinal}
-CAiXAS NECESSARIAS: ${caixasNecessarias}
-SITUAÇÃO DA META: ${situacaoMeta}
+==== RESUMO ====
+Turno: ${nomeTurno}
+Produção final: ${producaoFinal}
+Caixas necessárias: ${caixasNecessarias}
+Situação: ${situacaoMeta}
 `
 console.log(resumo)
-
 
 module.exports = {
     nomeTurno,
